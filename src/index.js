@@ -2,7 +2,42 @@ import './index.html'
 import './styles/screen.sass'
 
 const main = () => {
-  document.querySelector('h1').textContent += '?'
+  // document.querySelector('button').addEventListener('click', button)
+  // button()
+  let player = 'X'
+  const cells = document.querySelectorAll('td')
+  for (let i = 0; i < cells.length; i++) {
+    cells[i].addEventListener('click', () => {
+      if (cells[i].textContent === '') {
+        cells[i].textContent = player
+        if (player === 'X') {
+          player = 'O'
+        } else {
+          player = 'X'
+        }
+      }
+    })
+  }
+}
+
+// HINT: Try calling `gameOver(true)` in the console.
+// const gameOver = (playerDidWin) => {
+//   if (playerDidWin) {
+//     $('.dialog h3').textContent = 'You won!'
+//   } else {
+//     $('.dialog h3').textContent = 'You lost!'
+//   }
+//   $('body').className = 'modal'
+//   $('.scores .player').textContent = 0
+//   $('.scores .computer').textContent = 0
+// }
+
+// refresh button
+const button = () => {
+  document.querySelector('button').addEventListener('click', button)
+  button()
+  console.log('refresh')
+  // const cells = reload(true)
 }
 
 document.addEventListener('DOMContentLoaded', main)
