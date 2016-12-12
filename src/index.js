@@ -1,9 +1,9 @@
 import './index.html'
 import './styles/screen.sass'
 
+// click function to indicate x's and o's
 const main = () => {
-  // document.querySelector('button').addEventListener('click', button)
-  // button()
+  document.querySelector('button').addEventListener('click', reset)
   let player = 'X'
   const cells = document.querySelectorAll('td')
   for (let i = 0; i < cells.length; i++) {
@@ -20,6 +20,8 @@ const main = () => {
   }
 }
 
+// display result in score board
+
 // HINT: Try calling `gameOver(true)` in the console.
 // const gameOver = (playerDidWin) => {
 //   if (playerDidWin) {
@@ -32,12 +34,12 @@ const main = () => {
 //   $('.scores .computer').textContent = 0
 // }
 
-// refresh button
-const button = () => {
-  document.querySelector('button').addEventListener('click', button)
-  button()
-  console.log('refresh')
-  // const cells = reload(true)
+// reset board
+const reset = () => {
+  const cells = document.querySelectorAll('td')
+  for (let i = 0; i < cells.length; i++) {
+    cells[i].textContent = ''
+  }
 }
 
 document.addEventListener('DOMContentLoaded', main)
